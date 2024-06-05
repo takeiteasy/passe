@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct passeApp: App {
+struct PasseApp: App {
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra("Passe", systemImage: "lock") {
             ContentView()
-        }
+        }.menuBarExtraStyle(.window)
+        WindowGroup {}
     }
 }
+

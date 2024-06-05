@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E1EA88F2C11035400D810A0 /* passeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EA88E2C11035400D810A0 /* passeApp.swift */; };
-		5E1EA8912C11035400D810A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EA8902C11035400D810A0 /* ContentView.swift */; };
-		5E1EA8932C11035600D810A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E1EA8922C11035600D810A0 /* Assets.xcassets */; };
-		5E1EA8962C11035600D810A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E1EA8952C11035600D810A0 /* Preview Assets.xcassets */; };
+		5ED5DD2D2C10B262007CB61B /* passeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5DD2C2C10B262007CB61B /* passeApp.swift */; };
+		5ED5DD2F2C10B262007CB61B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5DD2E2C10B262007CB61B /* ContentView.swift */; };
+		5ED5DD312C10B264007CB61B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5DD302C10B264007CB61B /* Assets.xcassets */; };
+		5ED5DD342C10B264007CB61B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5DD332C10B264007CB61B /* Preview Assets.xcassets */; };
+		5ED5DD3E2C10B303007CB61B /* spectre.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5DD3D2C10B303007CB61B /* spectre.c */; };
+		5ED5DD402C10B3CA007CB61B /* SpectreBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5DD3F2C10B3CA007CB61B /* SpectreBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5E1EA88B2C11035400D810A0 /* passe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = passe.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E1EA88E2C11035400D810A0 /* passeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passeApp.swift; sourceTree = "<group>"; };
-		5E1EA8902C11035400D810A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		5E1EA8922C11035600D810A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5E1EA8952C11035600D810A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5E1EA8972C11035600D810A0 /* passe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = passe.entitlements; sourceTree = "<group>"; };
+		5E1EA8812C11032100D810A0 /* passe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = passe.entitlements; sourceTree = "<group>"; };
+		5ED5DD292C10B262007CB61B /* passe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = passe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ED5DD2C2C10B262007CB61B /* passeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passeApp.swift; sourceTree = "<group>"; };
+		5ED5DD2E2C10B262007CB61B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5ED5DD302C10B264007CB61B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5ED5DD332C10B264007CB61B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5ED5DD3B2C10B303007CB61B /* passe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "passe-Bridging-Header.h"; sourceTree = "<group>"; };
+		5ED5DD3C2C10B303007CB61B /* spectre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spectre.h; path = libspectre/src/spectre.h; sourceTree = SOURCE_ROOT; };
+		5ED5DD3D2C10B303007CB61B /* spectre.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = spectre.c; path = libspectre/src/spectre.c; sourceTree = SOURCE_ROOT; };
+		5ED5DD3F2C10B3CA007CB61B /* SpectreBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectreBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5E1EA8882C11035400D810A0 /* Frameworks */ = {
+		5ED5DD262C10B262007CB61B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,38 +39,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E1EA8822C11035400D810A0 = {
+		5ED5DD202C10B262007CB61B = {
 			isa = PBXGroup;
 			children = (
-				5E1EA88D2C11035400D810A0 /* passe */,
-				5E1EA88C2C11035400D810A0 /* Products */,
+				5ED5DD2B2C10B262007CB61B /* passe */,
+				5ED5DD2A2C10B262007CB61B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5E1EA88C2C11035400D810A0 /* Products */ = {
+		5ED5DD2A2C10B262007CB61B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E1EA88B2C11035400D810A0 /* passe.app */,
+				5ED5DD292C10B262007CB61B /* passe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5E1EA88D2C11035400D810A0 /* passe */ = {
+		5ED5DD2B2C10B262007CB61B /* passe */ = {
 			isa = PBXGroup;
 			children = (
-				5E1EA88E2C11035400D810A0 /* passeApp.swift */,
-				5E1EA8902C11035400D810A0 /* ContentView.swift */,
-				5E1EA8922C11035600D810A0 /* Assets.xcassets */,
-				5E1EA8972C11035600D810A0 /* passe.entitlements */,
-				5E1EA8942C11035600D810A0 /* Preview Content */,
+				5ED5DD3D2C10B303007CB61B /* spectre.c */,
+				5ED5DD3C2C10B303007CB61B /* spectre.h */,
+				5ED5DD3B2C10B303007CB61B /* passe-Bridging-Header.h */,
+				5ED5DD2C2C10B262007CB61B /* passeApp.swift */,
+				5ED5DD3F2C10B3CA007CB61B /* SpectreBridge.swift */,
+				5ED5DD2E2C10B262007CB61B /* ContentView.swift */,
+				5E1EA8812C11032100D810A0 /* passe.entitlements */,
+				5ED5DD302C10B264007CB61B /* Assets.xcassets */,
+				5ED5DD322C10B264007CB61B /* Preview Content */,
 			);
 			path = passe;
 			sourceTree = "<group>";
 		};
-		5E1EA8942C11035600D810A0 /* Preview Content */ = {
+		5ED5DD322C10B264007CB61B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				5E1EA8952C11035600D810A0 /* Preview Assets.xcassets */,
+				5ED5DD332C10B264007CB61B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -72,13 +82,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E1EA88A2C11035400D810A0 /* passe */ = {
+		5ED5DD282C10B262007CB61B /* passe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E1EA89A2C11035600D810A0 /* Build configuration list for PBXNativeTarget "passe" */;
+			buildConfigurationList = 5ED5DD382C10B264007CB61B /* Build configuration list for PBXNativeTarget "passe" */;
 			buildPhases = (
-				5E1EA8872C11035400D810A0 /* Sources */,
-				5E1EA8882C11035400D810A0 /* Frameworks */,
-				5E1EA8892C11035400D810A0 /* Resources */,
+				5ED5DD252C10B262007CB61B /* Sources */,
+				5ED5DD262C10B262007CB61B /* Frameworks */,
+				5ED5DD272C10B262007CB61B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -86,25 +96,26 @@
 			);
 			name = passe;
 			productName = passe;
-			productReference = 5E1EA88B2C11035400D810A0 /* passe.app */;
+			productReference = 5ED5DD292C10B262007CB61B /* passe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5E1EA8832C11035400D810A0 /* Project object */ = {
+		5ED5DD212C10B262007CB61B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					5E1EA88A2C11035400D810A0 = {
+					5ED5DD282C10B262007CB61B = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
-			buildConfigurationList = 5E1EA8862C11035400D810A0 /* Build configuration list for PBXProject "passe" */;
+			buildConfigurationList = 5ED5DD242C10B262007CB61B /* Build configuration list for PBXProject "passe" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,42 +123,44 @@
 				en,
 				Base,
 			);
-			mainGroup = 5E1EA8822C11035400D810A0;
-			productRefGroup = 5E1EA88C2C11035400D810A0 /* Products */;
+			mainGroup = 5ED5DD202C10B262007CB61B;
+			productRefGroup = 5ED5DD2A2C10B262007CB61B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E1EA88A2C11035400D810A0 /* passe */,
+				5ED5DD282C10B262007CB61B /* passe */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5E1EA8892C11035400D810A0 /* Resources */ = {
+		5ED5DD272C10B262007CB61B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E1EA8962C11035600D810A0 /* Preview Assets.xcassets in Resources */,
-				5E1EA8932C11035600D810A0 /* Assets.xcassets in Resources */,
+				5ED5DD342C10B264007CB61B /* Preview Assets.xcassets in Resources */,
+				5ED5DD312C10B264007CB61B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5E1EA8872C11035400D810A0 /* Sources */ = {
+		5ED5DD252C10B262007CB61B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E1EA8912C11035400D810A0 /* ContentView.swift in Sources */,
-				5E1EA88F2C11035400D810A0 /* passeApp.swift in Sources */,
+				5ED5DD2F2C10B262007CB61B /* ContentView.swift in Sources */,
+				5ED5DD3E2C10B303007CB61B /* spectre.c in Sources */,
+				5ED5DD402C10B3CA007CB61B /* SpectreBridge.swift in Sources */,
+				5ED5DD2D2C10B262007CB61B /* passeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5E1EA8982C11035600D810A0 /* Debug */ = {
+		5ED5DD362C10B264007CB61B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -210,7 +223,7 @@
 			};
 			name = Debug;
 		};
-		5E1EA8992C11035600D810A0 /* Release */ = {
+		5ED5DD372C10B264007CB61B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -265,12 +278,15 @@
 			};
 			name = Release;
 		};
-		5E1EA89B2C11035600D810A0 /* Debug */ = {
+		5ED5DD392C10B264007CB61B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = passe/passe.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -287,17 +303,23 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.takeiteasy.passe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "passe/passe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		5E1EA89C2C11035600D810A0 /* Release */ = {
+		5ED5DD3A2C10B264007CB61B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = passe/passe.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -314,7 +336,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.takeiteasy.passe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "passe/passe-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -322,25 +346,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E1EA8862C11035400D810A0 /* Build configuration list for PBXProject "passe" */ = {
+		5ED5DD242C10B262007CB61B /* Build configuration list for PBXProject "passe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E1EA8982C11035600D810A0 /* Debug */,
-				5E1EA8992C11035600D810A0 /* Release */,
+				5ED5DD362C10B264007CB61B /* Debug */,
+				5ED5DD372C10B264007CB61B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E1EA89A2C11035600D810A0 /* Build configuration list for PBXNativeTarget "passe" */ = {
+		5ED5DD382C10B264007CB61B /* Build configuration list for PBXNativeTarget "passe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E1EA89B2C11035600D810A0 /* Debug */,
-				5E1EA89C2C11035600D810A0 /* Release */,
+				5ED5DD392C10B264007CB61B /* Debug */,
+				5ED5DD3A2C10B264007CB61B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5E1EA8832C11035400D810A0 /* Project object */;
+	rootObject = 5ED5DD212C10B262007CB61B /* Project object */;
 }

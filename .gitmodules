@@ -1,0 +1,3 @@
+[submodule "libspectre"]
+	path = libspectre
+	url = git@github.com:takeiteasy/libspectre.git
