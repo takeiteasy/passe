@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct PasseApp: App {
     var body: some Scene {
-        MenuBarExtra("Passe", systemImage: "lock") {
+        MenuBarExtra("Passe", systemImage: "key") {
             ContentView()
         }.menuBarExtraStyle(.window)
         WindowGroup {}
