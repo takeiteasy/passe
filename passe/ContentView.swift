@@ -8,9 +8,9 @@
 import SwiftUI
 
 enum ViewState {
-    case userState
-    case passState
-    case viewState
+    case userState // Enter username state
+    case passState // Enter password state
+    case viewState // View passwords state
 }
 
 struct ContentView: View {
@@ -22,7 +22,7 @@ struct ContentView: View {
     @State var users = Array<String>()
     @State var sites = Array<String>()
     @State var showError = false
-    @State var viewState: ViewState = .viewState
+    @State var viewState: ViewState = .userState
     @State var hidePassword = true
     
     var body: some View {
@@ -31,7 +31,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             switch self.viewState {
-            case .userState:
+            case .userState: // Enter username state
                 VStack(alignment: .leading) {
                     Text("Name")
                         .font(.headline)
@@ -91,11 +91,13 @@ struct ContentView: View {
                 }
                 .onAppear(perform: {
                     self.defaults.synchronize()
+                    // Brief pause to allow UI to update, prevents list not being
+                    // the right size when the window opens for the first time
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         self.updateUsers()
                     }
                 })
-            case .passState:
+            case .passState: // Enter password state
                 VStack(alignment: .leading) {
                     Text("Master Password")
                         .font(.headline)
@@ -119,7 +121,7 @@ struct ContentView: View {
                         }
                     }
                 }
-            case .viewState:
+            case .viewState: // View passwords state
                 VStack(alignment: .leading) {
                     Text("Saved sites")
                         .font(.headline)
@@ -136,15 +138,19 @@ struct ContentView: View {
                             Text("+")
                         }
                     }
+                    // TODO: Add large label to display the current password
                 }
                 NavigationStack {
-                    
+                    // TODO: Display table on passwords for user
+                    // TODO: Table entry on click, copy to clipboard
                 }
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.willResignActiveNotification)) { _ in
+            // TODO: Add a timer to only clear data+state if past timeout
             self.name = ""
             self.pass = ""
+            self.site = ""
             self.viewState = .userState
         }
         .padding()
