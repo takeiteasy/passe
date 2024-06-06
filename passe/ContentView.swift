@@ -13,17 +13,25 @@ enum ViewState {
     case viewState // View passwords state
 }
 
+struct SitePassword: Identifiable {
+    let id = UUID()
+    var site: String
+    var pass: String
+}
+
 struct ContentView: View {
     @Environment(\.isFocused) private var isFocused: Bool
     let defaults = UserDefaults.standard
-    @State var name: String = ""
-    @State var pass: String = ""
-    @State var site: String = ""
+    @State var name = ""
+    @State var pass = ""
+    @State var site = ""
     @State var users = Array<String>()
-    @State var sites = Array<String>()
+    @State var sites = Array<SitePassword>()
+    @State var siteSelection: SitePassword.ID?
     @State var showError = false
     @State var viewState: ViewState = .userState
     @State var hidePassword = true
+    @State var passBuffer = ""
     
     var body: some View {
         VStack {
@@ -35,8 +43,10 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     Text("Name")
                         .font(.headline)
-                        .frame(maxWidth: .infinity, alignment: .center)
+                        .frame(maxWidth: .infinity,
+                               alignment: .center)
                     HStack {
+                        // TODO: On enter, make text field focused (for each state)
                         TextField("", text: $name, prompt: Text("..."))
                             .textFieldStyle(.roundedBorder)
                             .onSubmit {
@@ -60,7 +70,8 @@ struct ContentView: View {
                     if self.showError {
                         Text("That user already exists!")
                             .foregroundStyle(.red)
-                            .frame(maxWidth: .infinity, alignment: .center)
+                            .frame(maxWidth: .infinity,
+                                   alignment: .center)
                             .onAppear(perform: {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                     self.showError = false
@@ -69,25 +80,27 @@ struct ContentView: View {
                     }
                 }
                 NavigationStack {
-                    List {
-                        ForEach($users, id: \.self) { $user in
-                            Text(user)
-                                .onTapGesture {
-                                    self.name = user
-                                }
-                                .contextMenu {
-                                    Button(action: {
-                                        if let idx = self.users.firstIndex(of: user) {
-                                            self.deleteUser(at: IndexSet(integer: idx))
-                                        }
-                                    }){
-                                        Text("Delete")
+                    if !self.users.isEmpty {
+                        List {
+                            ForEach($users, id: \.self) { $user in
+                                Text(user)
+                                    .onTapGesture {
+                                        self.name = user
                                     }
-                                }
+                                    .contextMenu {
+                                        Button(action: {
+                                            if let idx = self.users.firstIndex(of: user) {
+                                                self.deleteUser(at: IndexSet(integer: idx))
+                                            }
+                                        }){
+                                            Text("Delete")
+                                        }
+                                    }
+                            }
+                            .onDelete(perform: deleteUser)
                         }
-                        .onDelete(perform: deleteUser)
+                        .cornerRadius(10)
                     }
-                    .cornerRadius(10)
                 }
                 .onAppear(perform: {
                     self.defaults.synchronize()
@@ -99,9 +112,10 @@ struct ContentView: View {
                 })
             case .passState: // Enter password state
                 VStack(alignment: .leading) {
-                    Text("Master Password")
+                    Text("Master Password for \(self.name)")
                         .font(.headline)
-                        .frame(maxWidth: .infinity, alignment: .center)
+                        .frame(maxWidth: .infinity,
+                               alignment: .center)
                     HStack {
                         if self.hidePassword {
                             SecureField("Enter master password ...", text: $pass)
@@ -123,26 +137,48 @@ struct ContentView: View {
                 }
             case .viewState: // View passwords state
                 VStack(alignment: .leading) {
-                    Text("Saved sites")
+                    Text("Saved sites for \(self.name)")
                         .font(.headline)
-                        .frame(maxWidth: .infinity, alignment: .center)
+                        .frame(maxWidth: .infinity,
+                               alignment: .center)
                     HStack {
                         TextField("", text: $site, prompt: Text("Name of site ..."))
                             .textFieldStyle(.roundedBorder)
                             .onChange(of: self.site) {
-                                // TODO: Update password label
+                                self.passBuffer = self.site.isEmpty ? "" : GeneratePassword(name: self.name, password: self.pass, site: self.site) ?? ""
                             }
                         Button(action: {
-                            // TODO: Add site to list
+                            if !self.site.trimmingCharacters(in: .whitespaces).isEmpty {
+                                try! self.addSite(user: self.name, site: self.site)
+                                self.updateSites()
+                                self.site = ""
+                                self.passBuffer = ""
+                            }
                         }){
                             Text("+")
                         }
                     }
-                    // TODO: Add large label to display the current password
+                    if !self.passBuffer.isEmpty {
+                        Text(self.passBuffer)
+                            .scaledToFill()
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
+                            .font(.system(size: 36))
+                            .frame(maxWidth: .infinity,
+                                   alignment: .center)
+                    }
                 }
                 NavigationStack {
-                    // TODO: Display table on passwords for user
                     // TODO: Table entry on click, copy to clipboard
+                    // TODO: Delete site from user
+                    if !self.sites.isEmpty {
+                        Table(sites, selection: $siteSelection) {
+                            TableColumn("Site", value: \.site)
+                            TableColumn("Password") { sp in
+                                Text(String(sp.pass))
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -158,10 +194,11 @@ struct ContentView: View {
     
     enum UserError: Error {
         case userAlreadyExists(name: String)
+        case userDoesntExist(name: String)
     }
     
     func tryViewState() {
-        if !self.pass.isEmpty {
+        if !self.pass.trimmingCharacters(in: .whitespaces).isEmpty {
             self.updateSites()
             self.viewState = .viewState
         }
@@ -179,7 +216,13 @@ struct ContentView: View {
     func updateSites() {
         if let dict: [String:Array<String>] = self.defaults.object(forKey: "users") as? [String:Array<String>] {
             if let sites: Array<String> = dict[self.name] {
-                self.sites = sites
+                self.sites = []
+                for site in sites {
+                    let pass = GeneratePassword(name: self.name,
+                                                password: self.pass,
+                                                site: site)!
+                    self.sites.append(SitePassword(site: site, pass: pass))
+                }
             }
         }
     }
@@ -203,6 +246,20 @@ struct ContentView: View {
             dict.removeValue(forKey: user)
             self.defaults.set(dict, forKey: "users")
             self.updateUsers()
+        }
+    }
+    
+    func addSite(user: String, site: String) throws {
+        var dict = self.defaults.object(forKey: "users") as! [String:Array<String>]
+        if var arr: Array<String> = dict[user] {
+            if arr.firstIndex(of: site) == nil {
+                arr.append(site)
+                dict[user] = arr
+                self.defaults.set(dict, forKey: "users")
+                self.updateUsers()
+            }
+        } else {
+            throw UserError.userDoesntExist(name: user)
         }
     }
 }
