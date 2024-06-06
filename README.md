@@ -6,6 +6,10 @@ Passé has no sign up, and passwords aren't stored anywhere. All passwords are g
 
 This means that in the event your computer dies and your data is lost, all you need to do is reinstall Passé, enter your username and master password then put the site name in and voilà - your password.
 
+<p align="center">
+  <img src="https://github.com/takeiteasy/passe/blob/master/screenshot.png?raw=true">
+</p>
+
 ## TODO
 
 - [ ] Focus TextField on appear and when state changes
