@@ -14,6 +14,8 @@ This means that in the event your computer dies and your data is lost, all you n
   <img src="https://github.com/takeiteasy/passe/blob/master/screenshot.png?raw=true">
 </p>
 
+> [!NOTE]
+> That's not my actual password, so please don't even try
 
 ## TODO
 
